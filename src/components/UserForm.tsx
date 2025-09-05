@@ -135,7 +135,7 @@ const UserForm: React.FC<UserFormProps> = ({
         )}
       </div>
 
-      <div className="flex justify-end gap-4 pt-6 border-t">
+      <div className="flex justify-end gap-4 pt-6 ">
         <button
           type="button"
           onClick={onCancel}

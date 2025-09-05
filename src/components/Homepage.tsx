@@ -241,15 +241,15 @@ function Homepage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 font-sans">
+    <div className="min-h-screen bg-gray-50 p-8 ">
       <header className="text-center mb-12">
         <h1 className="text-5xl font-bold mb-2 text-gray-800">
           User Management Dashboard
         </h1>
       </header>
 
-      <div className="flex justify-between items-center mb-8 gap-8 flex-wrap">
-        <div className="relative flex-1 max-w-md">
+      <div className="flex justify-center items-center mb-8 gap-8 flex-wrap sm:flex sm:justify-between sm:items-center sm:mb-8 sm:gap-8 sm:flex-wrap">
+        <div className="relative  max-w-[270px] min-w-[270px]">
           <input
             type="text"
             placeholder={`Search ${activeTab}...`}
@@ -264,7 +264,8 @@ function Homepage() {
 
         <div className="flex gap-2">
           <button
-            className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+            style={{ minWidth: "130px" }}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300  ${
               activeTab === "users"
                 ? "bg-blue-600 text-white shadow-lg"
                 : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
@@ -274,7 +275,8 @@ function Homepage() {
             Users ({filteredUsers.length})
           </button>
           <button
-            className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+            style={{ minWidth: "130px" }}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300  ${
               activeTab === "posts"
                 ? "bg-blue-600 text-white shadow-lg"
                 : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
@@ -289,8 +291,8 @@ function Homepage() {
       <main className="bg-white rounded-xl p-8 shadow-lg border border-gray-200 min-h-[500px]">
         {activeTab === "users" ? (
           <div>
-            <div className="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-100">
-              <h2 className="text-3xl font-semibold text-gray-800">Users</h2>
+            <div className="flex justify-between items-center flex-wrap mb-8 pb-4 border-b-2 border-gray-100">
+              <h2 className="text-3xl font-semibold text-gray-800 ">Users</h2>
               <button
                 onClick={() => openUserModal()}
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
@@ -347,7 +349,7 @@ function Homepage() {
               <h2 className="text-3xl font-semibold text-gray-800">Posts</h2>
               <button
                 onClick={() => openPostModal()}
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg flex justify-center items-end"
               >
                 + Add Post
               </button>
@@ -356,21 +358,21 @@ function Homepage() {
               {filteredPosts.map((post) => (
                 <div
                   key={post.id}
-                  className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between"
+                  className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col justify-between"
                 >
-                  <div className="flex justify-between items-start mb-4 gap-4">
-                    {/* Tailwind break all ihtiyaç durumunda kelime bitmese dahi kelimeyi kırar*/}
-                    <h3 className="text-xl font-semibold text-gray-800 flex-1 leading-relaxed break-all">
-                      {post.title.length > 50
-                        ? post.title.slice(0, 50) + "..."
-                        : post.title}
-                    </h3>
-                    <div className="flex flex-col items-end gap-2">
+                  <div className="mb-4 w-full max-w-sm  flex flex-col justify-between">
+                    <div className="flex flex-col items-start gap-2">
                       <span className="bg-blue-600 text-white px-3 py-1 rounded-lg text-sm font-medium whitespace-nowrap">
                         by {getUserName(post.userId)}
                       </span>
                     </div>
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-800 flex-1 leading-relaxed break-words">
+                      {post.title.length > 50
+                        ? post.title.slice(0, 50) + "..."
+                        : post.title}
+                    </h3>
                   </div>
+
                   <div className="flex gap-2">
                     <button
                       onClick={() => openPostModal(post)}
