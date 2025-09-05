@@ -4,7 +4,7 @@
 
 Before running this project, make sure you have the following installed:
 
-- **Node.js** (v18 or higher) - [Download here](https://nodejs.org/)
+- **Node.js** (v18 or higher)
 - **npm** package manager
 
 ## Installation & Setup
@@ -12,7 +12,7 @@ Before running this project, make sure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <https://github.com/emrecanberktas/davinci-assignment.git>
+git clone https://github.com/emrecanberktas/davinci-assignment.git
 cd web-development-assignment
 ```
 
@@ -30,7 +30,7 @@ npm run dev
 
 The application will start running at `http://localhost:5173`
 
-## 🎯 How to Use
+## How to Use
 
 ### First Time Setup
 
